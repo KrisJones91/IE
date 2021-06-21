@@ -16,7 +16,20 @@ namespace IE
         // <param name = "args"> </param>
         static void Main(string[] args)
         {
-            
+            DogShelter shelter = new DogShelter();
+
+            //iterate through list and check if we want to give treats
+            foreach(Dog dog in shelter)
+            {
+                if(!dog.IsBad)
+                {
+                    dog.GiveTreat(2);
+                }
+                else
+                {
+                    dog.GiveTreat(1);
+                }
+            }
         }
     }
 }

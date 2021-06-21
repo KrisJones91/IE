@@ -1,8 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 
 namespace IE
 {
-    class DogShelter
+    //this class contains a generic collection of ype Dog
+    //objects of this class CAN'T be used inside a for each loop because it lacks an implementation of the IEnumerable interface
+    class DogShelter : IEnumerable<Dog>
     {
         //list of type List<Dog>
         public List<Dog> dogs;
@@ -19,6 +22,17 @@ namespace IE
                 new Dog("Oreo", false),
                 new Dog("Gus", false)
             };
+        }
+
+        IEnumerator<Dog> IEnumerable<Dog>.GetEnumerator()
+        {
+            return dogs.GetEnumerator();
+            // throw new System.NotImplementedException();
+        }
+        //don't need to implement because Dog is not generic MUST KEEP but do nothing
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
