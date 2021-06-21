@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace IE
@@ -6,7 +7,30 @@ namespace IE
     {
         static void Secondary(string[] args)
         {
+            IEnumerable<int> unknownCollection;
+            unknownCollection = GetCollection(1);
 
+            Console.WriteLine("This was a List<int>");
+            foreach (int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+            // call GetCollection() with option == 2 which will return a Queue<int>
+            // but we will store it in the base type of generic collections
+            unknownCollection = GetCollection(2);
+            Console.WriteLine("This was a Queue<int>");
+            foreach(int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+
+            unknownCollection = GetCollection(5);
+            Console.WriteLine("This was an Array of int");
+            foreach(int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+            
         }
 
         static IEnumerable<int> GetCollection(int option)
