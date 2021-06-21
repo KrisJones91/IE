@@ -14,6 +14,15 @@ namespace IE
         //by exposing a current property that points at the object we are currently at in the collection
         //</summary>
         // <param name = "args"> </param>
+
+        //When is it recommended to use the IEnumerable interface:
+        // Your collection represents a massive database table
+        // You don't want to copy the entire thing into memory and cause performance issues
+        
+        // When it is not recommended:
+        // You need the results right away and are possibly mutating / editing the objects later on
+        // In this case, it is better to use an Array or a List
+
         static void Main(string[] args)
         {
             DogShelter shelter = new DogShelter();
